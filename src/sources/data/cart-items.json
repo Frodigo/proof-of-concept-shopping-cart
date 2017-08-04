@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "subtotal": 134,
+    "qty": 1,
+    "name": "Bag",
+    "url": "#",
+    "price": "134",
+    "currency": "$",
+    "image": "http://via.placeholder.com/80x80"
+  },
+  {
+    "id": 2,
+    "subtotal": 80,
+    "qty": 2,
+    "name": "Backpack",
+    "url": "#",
+    "price": "40",
+    "currency": "$",
+    "image": "http://via.placeholder.com/80x80"
+  }
+]

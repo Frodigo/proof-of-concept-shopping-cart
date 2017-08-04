@@ -28,8 +28,9 @@ const config = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            ["react"] 
-                        ]
+                            ["react"]
+                        ],
+                        plugins: ["transform-object-rest-spread"]
                     }
                 }]
             },
@@ -53,6 +54,12 @@ const config = {
                 test: /\.(png|jpg)$/,
                 use: [{
                     loader: 'file-loader?name=assets/images/[name].[ext]'
+                }]
+            },
+            {
+                test: /\.(json)$/,
+                use: [{
+                    loader: 'file-loader?name=data/[name].[ext]'
                 }]
             },
             {
