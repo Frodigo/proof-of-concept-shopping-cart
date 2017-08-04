@@ -1,6 +1,7 @@
 import React from 'react';
 import Messages from './Messages';
 import CartItems from './Cart/Items';
+import CartSummary from './Cart/Summary';
 
 class CartComponent extends React.Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class CartComponent extends React.Component {
 
     componentDidMount () {
         this.props.fetchCartItems();
+        this.props.fetchAvailableCountries();
     }
 
     render () {
@@ -31,6 +33,10 @@ class CartComponent extends React.Component {
                             <CartItems isLoading={this.props.cartItems.isLoading} items={this.props.cartItems.items}
                                        onRemoveCartItem={this.props.removeCartItem}
                                        onUpdateCartItem={this.props.recalculateCartItemSubtotal}/>
+                            <CartSummary isLoading={this.props.cartSummary.isLoading}
+                                         countries={this.props.cartSummary.availableCountries} 
+                                         selectedCountry={this.props.cartSummary.userData.selectedCountry}
+                                         onMarkSelectedCountry={this.props.markCountryAsSelected}/>
                         </div>
                     </div>
                 </div>

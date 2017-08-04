@@ -1,0 +1,17 @@
+[
+    {
+        "country_id": 1,
+        "label": "Poland",
+        "value": "PL"
+    },
+    {
+        "country_id": 2,
+        "label": "USA",
+        "value": "US"
+    },
+    {
+        "country_id": 3,
+        "label": "England",
+        "value": "EN"
+    }
+]
