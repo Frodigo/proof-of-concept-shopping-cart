@@ -7,7 +7,12 @@ import {
 
 export default function messagesReducer (state = {
     isLoading: false,
-    items: []
+    items: [
+        {
+            type: 'success',
+            text: 'Success message'
+        }
+    ]
 }, action) {
     switch(action.type) {
         case GET_MESSAGES: {

@@ -12993,3 +12993,18 @@ fieldset[disabled] .sidebar .block-addbysku .action.remove {
         width: 33.33333333%;
     }
 }
+
+.action.remove {
+    border: 0;
+    padding: 0;
+
+    &::before {
+        display: none !important;
+    }
+}
+
+.messages {
+    .action.remove {
+        float: right;
+    }
+}

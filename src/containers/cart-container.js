@@ -1,12 +1,16 @@
 import { connect } from 'react-redux'
 import Cart from './../components/Cart';
+import  {removeMessage} from './../actions/messages-actions';
 
-const mapStateToProps = (state) => ({
-    messages: state.messages
-});
+const mapStateToProps = state => {
+    return {
+        messages: state.messages
+    }
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        removeMessage: (message) => dispatch(removeMessage(message))
     };
 };
 

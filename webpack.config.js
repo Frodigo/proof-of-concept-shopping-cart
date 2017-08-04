@@ -14,6 +14,7 @@ const config = {
     entry: {
         index: './index.js'
     },
+    devtool: 'source-map',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'assets/js/[name].bundle.js'

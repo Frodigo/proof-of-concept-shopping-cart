@@ -19,5 +19,6 @@ export const addMessage = (message) => ({
 });
 
 export const removeMessage = (message) => ({
-   type: REMOVE_MESSAGE 
+   type: REMOVE_MESSAGE ,
+    message
 });

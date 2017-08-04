@@ -1,19 +1,24 @@
 import React from 'react';
+import Messages from './Messages';
 
-const CartComponent = () => (
-    <div>
-        <div className="page-title-wrapper">
-            <h1 className="page-title">
-                <span className="base">Shopping Cart</span>
-            </h1>
-        </div>
+class CartComponent extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-        <div className="page messages">
-            <div className="messages">
-                <div className="message success">Success message</div>
+    render () {
+        return (
+            <div>
+                <div className="page-title-wrapper">
+                    <h1 className="page-title">
+                        <span className="base">Shopping Cart</span>
+                    </h1>
+                </div>
+
+                <Messages messages={this.props.messages} removeMessage={(message) => this.props.removeMessage(message)}></Messages>
             </div>
-        </div>
-    </div>
-);
+        )
+    }
+}
 
 export default CartComponent;
