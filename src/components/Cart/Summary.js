@@ -1,5 +1,6 @@
 import React from 'react';
 import AvailableCountries from './Summary/Available-countries';
+import ShippingMethod from './Summary/Shipping-methods';
 
 export default class CartSummaryComponent extends React.Component {
     constructor (props) {
@@ -7,8 +8,9 @@ export default class CartSummaryComponent extends React.Component {
     }
 
     render () {
+        let componentClass = this.props.isLoading ? 'cart-summary component is-loading': 'cart-summary component';
         return (
-            <aside className="cart-summary">
+            <aside className={componentClass}>
                 <h3 className="summary title">Summary</h3>
 
                 <h4>Estimate shipping and Tax</h4>
@@ -16,10 +18,14 @@ export default class CartSummaryComponent extends React.Component {
                 <form>
                     <fieldset className="fieldset">
                         <AvailableCountries countries={this.props.countries}
-                                            selectedCountry={this.props.selectedCountry} onChange={this.props.onMarkSelectedCountry}/>
+                                            selectedCountry={this.props.selectedCountry} 
+                                            onChange={this.props.onMarkSelectedCountry}/>
+                        <ShippingMethod shippingMethods={this.props.shippingMethods}
+                                        selectedShippingMethod={this.props.selectedShippingMethod}
+                                        onSelectShippingMethod={this.props.onSelectShippingMethod}
+                                        isVisible={this.props.selectedCountry}/>
                     </fieldset>
                 </form>
-
             </aside>
         )
     }

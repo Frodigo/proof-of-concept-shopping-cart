@@ -7,10 +7,12 @@ import {
     recalculateCartItemSubtotal as recalculateCartItemSubtotalAction
 } from './../actions/cart-items-actions';
 import {
-    fetchAvailableCountries
+    fetchAvailableCountries,
+    fetchAvailableShippingMethodsForCountry
 } from './../sources/cart-summary-source';
 import {
-    markCountryAsSelected as markCountryAsSelectedAction
+    markCountryAsSelected as markCountryAsSelectedAction,
+    selectShippingMethod as selectShippingMethodAction
 } from './../actions/cart-summary-actions'
 
 const mapStateToProps = state => {
@@ -28,7 +30,9 @@ const mapDispatchToProps = (dispatch) => {
         removeCartItem: (itemToRemove) => dispatch(removeCartItem(itemToRemove)),
         recalculateCartItemSubtotal: (cartItem, newQty) => dispatch(recalculateCartItemSubtotal(cartItem, newQty)),
         fetchAvailableCountries: () => dispatch(fetchAvailableCountries()),
-        markCountryAsSelected: (selectedCountry) => dispatch(markCountryAsSelected(selectedCountry))
+        fetchAvailableShippingMethodsForCountry: (countryId) => dispatch(fetchAvailableShippingMethodsForCountry(countryId)),
+        markCountryAsSelected: (selectedCountry) => dispatch(markCountryAsSelected(selectedCountry)),
+        selectShippingMethod: (selectedShippingMethod) => dispatch(selectShippingMethod(selectedShippingMethod))
     };
 };
 
@@ -49,8 +53,15 @@ const recalculateCartItemSubtotal = (cartItem, newQty) => {
 const markCountryAsSelected = (selectedCountry) => {
     return (dispatch) => {
         dispatch(markCountryAsSelectedAction(selectedCountry));
-        // TODO: add function for fetch shipping methods
+        dispatch(fetchAvailableShippingMethodsForCountry(selectedCountry));
     }
+};
+
+const selectShippingMethod = (selectedShippingMethod) => {
+  return (dispatch) => {
+      dispatch(selectShippingMethodAction(selectedShippingMethod));
+      // TODO add collect totals
+  }  
 };
 
 const CartContainer = connect(

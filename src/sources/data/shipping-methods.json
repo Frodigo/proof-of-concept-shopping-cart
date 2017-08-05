@@ -1,0 +1,14 @@
+[
+  {
+    "shipping_method_id": 1,
+    "label": "Flat rate",
+    "value": 15,
+    "currency": "$"
+  },
+  {
+    "shipping_method_id": 2,
+    "label": "Courier",
+    "value": 10,
+    "currency": "$"
+  }
+]

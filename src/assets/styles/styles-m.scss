@@ -13008,3 +13008,19 @@ fieldset[disabled] .sidebar .block-addbysku .action.remove {
         float: right;
     }
 }
+
+.list-unstyled {
+    display: block;
+    margin: 10px 0;
+    padding: 0;
+
+    > li {
+        display: block;
+    }
+}
+
+.shipping-method-control {
+    small {
+        margin-left: 5px;
+    }
+}

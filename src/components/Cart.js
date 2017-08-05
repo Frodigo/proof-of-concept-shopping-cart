@@ -36,7 +36,10 @@ class CartComponent extends React.Component {
                             <CartSummary isLoading={this.props.cartSummary.isLoading}
                                          countries={this.props.cartSummary.availableCountries} 
                                          selectedCountry={this.props.cartSummary.userData.selectedCountry}
-                                         onMarkSelectedCountry={this.props.markCountryAsSelected}/>
+                                         onMarkSelectedCountry={this.props.markCountryAsSelected}
+                                         shippingMethods={this.props.cartSummary.shippingMethods}
+                                         selectedShippingMethod={this.props.cartSummary.userData.selectedShippingMethod}
+                                         onSelectShippingMethod={this.props.selectShippingMethod} />
                         </div>
                     </div>
                 </div>
