@@ -2,7 +2,7 @@ import {
     getCartItems,
     cartItemsLoading
 } from './../actions/cart-items-actions'
-
+import {collectTotals} from './../actions/cart-summary-actions';
 
 require('./data/cart-items.json');
 
@@ -20,7 +20,10 @@ export function fetchCartItems() {
                 return response;
             })
             .then((response) => response.json())
-            .then((items) => dispatch(getCartItems(items)))
+            .then((items) => {
+                dispatch(getCartItems(items));
+                dispatch(collectTotals());
+            })
             .catch((error) => console.error(error));
     };
 }

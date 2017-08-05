@@ -11,7 +11,6 @@ export default class ShippingMethodsComponent extends React.Component {
             return (
                 <div className="component field">
                     <label className="label">Shipping method</label>
-
                     <ul className="list-unstyled">
                         {this.props.shippingMethods.map(shippingMethod => {
                             return <li className="control shipping-method-control" key={shippingMethod[ShippingMethodInterface.ID]}>
@@ -19,7 +18,7 @@ export default class ShippingMethodsComponent extends React.Component {
                                        id={'shipping-method-' + shippingMethod[ShippingMethodInterface.ID]}
                                        value={shippingMethod[ShippingMethodInterface.ID]}
                                        checked={shippingMethod[ShippingMethodInterface.VALUE === this.props.selectedShippingMethod]}
-                                       onChange={(event) => this.props.onSelectShippingMethod(event.target.value)}
+                                       onClick={(event) => this.props.onSelectShippingMethod(event.target.value)}
                                        name="shipping-method"/>
                                 <label htmlFor={'shipping-method-' + shippingMethod[ShippingMethodInterface.ID]}>
                                     {shippingMethod[ShippingMethodInterface.LABEL]}

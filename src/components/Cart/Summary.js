@@ -1,6 +1,7 @@
 import React from 'react';
 import AvailableCountries from './Summary/Available-countries';
 import ShippingMethod from './Summary/Shipping-methods';
+import CartTotals from './Summary/Cart-totals';
 
 export default class CartSummaryComponent extends React.Component {
     constructor (props) {
@@ -26,6 +27,10 @@ export default class CartSummaryComponent extends React.Component {
                                         isVisible={this.props.selectedCountry}/>
                     </fieldset>
                 </form>
+                <CartTotals subtotal={this.props.totals.subtotal}
+                            shipping={this.props.totals.shipping}
+                            orderTotal={this.props.totals.orderTotal}
+                            currency="$"/>
             </aside>
         )
     }

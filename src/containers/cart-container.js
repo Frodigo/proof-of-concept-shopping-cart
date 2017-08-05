@@ -12,7 +12,8 @@ import {
 } from './../sources/cart-summary-source';
 import {
     markCountryAsSelected as markCountryAsSelectedAction,
-    selectShippingMethod as selectShippingMethodAction
+    selectShippingMethod as selectShippingMethodAction,
+    collectTotals
 } from './../actions/cart-summary-actions'
 
 const mapStateToProps = state => {
@@ -32,21 +33,22 @@ const mapDispatchToProps = (dispatch) => {
         fetchAvailableCountries: () => dispatch(fetchAvailableCountries()),
         fetchAvailableShippingMethodsForCountry: (countryId) => dispatch(fetchAvailableShippingMethodsForCountry(countryId)),
         markCountryAsSelected: (selectedCountry) => dispatch(markCountryAsSelected(selectedCountry)),
-        selectShippingMethod: (selectedShippingMethod) => dispatch(selectShippingMethod(selectedShippingMethod))
+        selectShippingMethod: (selectedShippingMethod) => dispatch(selectShippingMethod(selectedShippingMethod)),
+        collectTotals: () => dispatch(collectTotals())
     };
 };
 
 const removeCartItem = (itemToRemove) => {
     return (dispatch) => {
         dispatch(removeCartItemAction(itemToRemove));
-        // TODO: add collect Total method
+        dispatch(collectTotals());
     }
 };
 
 const recalculateCartItemSubtotal = (cartItem, newQty) => {
     return (dispatch) => {
         dispatch(recalculateCartItemSubtotalAction(cartItem, newQty));
-        // TODO: add collect Total method
+        dispatch(collectTotals());
     }
 };
 
@@ -60,7 +62,7 @@ const markCountryAsSelected = (selectedCountry) => {
 const selectShippingMethod = (selectedShippingMethod) => {
   return (dispatch) => {
       dispatch(selectShippingMethodAction(selectedShippingMethod));
-      // TODO add collect totals
+      dispatch(collectTotals());
   }  
 };
 

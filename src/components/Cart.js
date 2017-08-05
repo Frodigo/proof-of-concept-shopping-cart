@@ -39,7 +39,8 @@ class CartComponent extends React.Component {
                                          onMarkSelectedCountry={this.props.markCountryAsSelected}
                                          shippingMethods={this.props.cartSummary.shippingMethods}
                                          selectedShippingMethod={this.props.cartSummary.userData.selectedShippingMethod}
-                                         onSelectShippingMethod={this.props.selectShippingMethod} />
+                                         onSelectShippingMethod={this.props.selectShippingMethod}
+                                         totals={this.props.cartSummary.totals} />
                         </div>
                     </div>
                 </div>
