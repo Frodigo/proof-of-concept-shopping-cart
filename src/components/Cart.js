@@ -14,6 +14,27 @@ class CartComponent extends React.Component {
     }
 
     render () {
+        let component = null;
+        if (this.props.cartItems.items.length) {
+            component = <div className="cart-container">
+                <CartItems isLoading={this.props.cartItems.isLoading}
+                           items={this.props.cartItems.items}
+                           onRemoveCartItem={this.props.removeCartItem}
+                           onUpdateCartItem={this.props.recalculateCartItemSubtotal}/>
+                <CartSummary isLoading={this.props.cartSummary.isLoading}
+                             countries={this.props.cartSummary.availableCountries}
+                             selectedCountry={this.props.cartSummary.userData.selectedCountry}
+                             onMarkSelectedCountry={this.props.markCountryAsSelected}
+                             shippingMethods={this.props.cartSummary.shippingMethods}
+                             selectedShippingMethod={this.props.cartSummary.userData.selectedShippingMethod}
+                             onSelectShippingMethod={this.props.selectShippingMethod}
+                             totals={this.props.cartSummary.totals} />
+            </div>
+        } else {
+            component = <div className="cart-container">
+                <p>You have no items in your shopping cart.</p>
+            </div>
+        }
         return (
             <div>
                 <div className="page-title-wrapper">
@@ -29,19 +50,7 @@ class CartComponent extends React.Component {
 
                 <div className="columns">
                     <div className="column main">
-                        <div className="cart-container">
-                            <CartItems isLoading={this.props.cartItems.isLoading} items={this.props.cartItems.items}
-                                       onRemoveCartItem={this.props.removeCartItem}
-                                       onUpdateCartItem={this.props.recalculateCartItemSubtotal}/>
-                            <CartSummary isLoading={this.props.cartSummary.isLoading}
-                                         countries={this.props.cartSummary.availableCountries} 
-                                         selectedCountry={this.props.cartSummary.userData.selectedCountry}
-                                         onMarkSelectedCountry={this.props.markCountryAsSelected}
-                                         shippingMethods={this.props.cartSummary.shippingMethods}
-                                         selectedShippingMethod={this.props.cartSummary.userData.selectedShippingMethod}
-                                         onSelectShippingMethod={this.props.selectShippingMethod}
-                                         totals={this.props.cartSummary.totals} />
-                        </div>
+                        {component}
                     </div>
                 </div>
             </div>
