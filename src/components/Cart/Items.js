@@ -12,13 +12,13 @@ export default class CartItemsComponent extends React.Component{
         return (
             <form className={componentClass}>
                 <div className="cart table-wrapper">
-                    <table id="shopping-cart-table" className="cart items data table">
+                    <table id="shopping-cart-table" className="table">
                         <thead>
                             <tr>
-                                <th className="col item"><span>Item</span></th>
-                                <th className="col price"><span>Price</span></th>
-                                <th className="col qty"><span>Qty</span></th>
-                                <th className="col subtotal"><span>Subtotal</span></th>
+                                <th><span>Item</span></th>
+                                <th><span>Price</span></th>
+                                <th><span>Qty</span></th>
+                                <th><span>Subtotal</span></th>
                             </tr>
                         </thead>
                         {this.props.items.map(cartItem => {

@@ -7,7 +7,8 @@ export default class CartTotalsComponent extends React.Component {
 
     render () {
         return (
-            <div id="cart-totals" className="cart-totals">
+            <div className="cart-totals">
+                <h4>Totals:</h4>
                 <div className="table-wrapper">
                     <table className="data table totals">
                         <tbody>

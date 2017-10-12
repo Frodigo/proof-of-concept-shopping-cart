@@ -1,0 +1,20 @@
+.product-item-image {
+    margin-right: 15px;
+}
+
+.form-control {
+    &.qty {
+        display: inline;
+        min-width: 0;
+        max-width: 100px;
+        width: auto;
+    }
+}
+
+.shipping-method-value {
+    margin-left: 5px;
+}
+
+.label {
+    color: #000;
+}

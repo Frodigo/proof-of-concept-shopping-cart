@@ -11,9 +11,15 @@ class MessagesComponent extends React.Component {
             <div className={componentClass}>
                 <div className="messages">
                     {this.props.messages.map((message, index) => {
-                        return <div key={index} className={'message ' + message.type}>
+                        return <div key={index} className={'alert alert-' + message.type}>
                             {message.text}
-                            <button className="action remove" onClick={() => this.props.removeMessage(message)}>x</button>
+                            <button type="button"
+                                    className="close"
+                                    data-dismiss="alert"
+                                    aria-label="Close"
+                                    onClick={() => this.props.removeMessage(message)}>
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                     })}
                 </div>

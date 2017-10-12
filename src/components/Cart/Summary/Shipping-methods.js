@@ -10,22 +10,22 @@ export default class ShippingMethodsComponent extends React.Component {
         if (this.props.isVisible) {
             return (
                 <div className="component field">
-                    <label className="label">Shipping method</label>
+                    <label>Shipping method</label>
                     <ul className="list-unstyled">
                         {this.props.shippingMethods.map(shippingMethod => {
-                            return <li className="control shipping-method-control" key={shippingMethod[ShippingMethodInterface.ID]}>
-                                <input type="radio"
-                                       id={'shipping-method-' + shippingMethod[ShippingMethodInterface.ID]}
-                                       value={shippingMethod[ShippingMethodInterface.ID]}
-                                       checked={shippingMethod[ShippingMethodInterface.VALUE === this.props.selectedShippingMethod]}
-                                       onClick={(event) => this.props.onSelectShippingMethod(event.target.value)}
-                                       name="shipping-method"/>
+                            return <li className="control shipping-method-control radio" key={shippingMethod[ShippingMethodInterface.ID]}>
                                 <label htmlFor={'shipping-method-' + shippingMethod[ShippingMethodInterface.ID]}>
+                                    <input type="radio"
+                                           id={'shipping-method-' + shippingMethod[ShippingMethodInterface.ID]}
+                                           value={shippingMethod[ShippingMethodInterface.ID]}
+                                           checked={shippingMethod[ShippingMethodInterface.VALUE === this.props.selectedShippingMethod]}
+                                           onClick={(event) => this.props.onSelectShippingMethod(event.target.value)}
+                                           name="shipping-method"/>
                                     {shippingMethod[ShippingMethodInterface.LABEL]}
-                                    <small>
+                                    <strong className="shipping-method-value">
                                         ({shippingMethod[ShippingMethodInterface.CURRENCY]}
                                         {shippingMethod[ShippingMethodInterface.VALUE]})
-                                    </small>
+                                    </strong>
                                 </label>
                             </li>
                         })}

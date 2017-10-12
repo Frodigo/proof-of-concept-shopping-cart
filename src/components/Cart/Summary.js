@@ -9,28 +9,28 @@ export default class CartSummaryComponent extends React.Component {
     }
 
     render () {
-        let componentClass = this.props.isLoading ? 'cart-summary component is-loading': 'cart-summary component';
+        let componentClass = this.props.isLoading ? 'panel panel-default is-loading': 'panel panel-default';
         return (
             <aside className={componentClass}>
-                <h3 className="summary title">Summary</h3>
+                <div className="panel-heading">Summary</div>
 
-                <h4>Estimate shipping and Tax</h4>
+                <div className="panel-body">
+                    <h4>Estimate shipping and Tax</h4>
 
-                <form>
-                    <fieldset className="fieldset">
+                    <form>
                         <AvailableCountries countries={this.props.countries}
-                                            selectedCountry={this.props.selectedCountry} 
+                                            selectedCountry={this.props.selectedCountry}
                                             onChange={this.props.onMarkSelectedCountry}/>
                         <ShippingMethod shippingMethods={this.props.shippingMethods}
                                         selectedShippingMethod={this.props.selectedShippingMethod}
                                         onSelectShippingMethod={this.props.onSelectShippingMethod}
                                         isVisible={this.props.selectedCountry}/>
-                    </fieldset>
-                </form>
-                <CartTotals subtotal={this.props.totals.subtotal}
-                            shipping={this.props.totals.shipping}
-                            orderTotal={this.props.totals.orderTotal}
-                            currency="$"/>
+                    </form>
+                    <CartTotals subtotal={this.props.totals.subtotal}
+                                shipping={this.props.totals.shipping}
+                                orderTotal={this.props.totals.orderTotal}
+                                currency="$"/>
+                </div>
             </aside>
         )
     }

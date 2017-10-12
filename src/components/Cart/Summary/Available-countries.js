@@ -9,12 +9,12 @@ export default class AvailableCountriesCOmponent extends React.Component {
     render () {
         return (
             <div className="component field">
-                <label className="label" htmlFor="countries">Country</label>
+                <label htmlFor="countries">Country</label>
 
-                <div className="control">
+                <div className="form-group">
                     <select name="countries"
                             id="countries"
-                            className="select" value={this.props.selectedCountry}
+                            className="form-control" value={this.props.selectedCountry}
                             onChange={(event) => this.props.onChange(event.target.value)}>
                         <option value="-1">Please select a country</option>
                         {this.props.countries.map(country => {
